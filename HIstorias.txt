@@ -1,0 +1,14 @@
+- Temporizador pomodoro
+- Puedes modificar el tiempo del temporizador
+- Puedes ponerlo en pausa
+- Puedes reiniciarlo
+
+- Temporizador de receso
+- Puedes modificar el tiempo del temporizador
+- Puedes ponerlo en pausa
+- Puedes reiniciarlo
+
+- En el nombre de pestaña sale el tiempo.
+
+Extras
+- Temas de color

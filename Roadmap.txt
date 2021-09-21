@@ -1,0 +1,6 @@
+1. Configuracion inicial
+ 	1. Git
+	2. Hello world (HTML + CSS + JS)
+2. Temporizador
+3. Botones
+4. Lista de pomodors hechos
