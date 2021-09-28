@@ -1,11 +1,3 @@
-console.log("Hello World");
-let counter = 5000;
-function startTimer() {
-  setTimeout(() => {
-    alert("You're done!");
-  }, 20000);
-}
-
 function backwardsCount(seconds) {
   const intervalID = setInterval(() => {
     seconds--;
@@ -25,14 +17,13 @@ function backwardsCount(seconds) {
  * Hará una cuenta regresiva hasta que 'minutes' y 'seconds' sea 0
  */
 function timer(min, sec) {
-  console.log(min, sec);
   if (sec == 0) {
     min--;
     sec += 59;
   }
   const intervalID = setInterval(() => {
     sec--;
-    console.log(min, sec);
+    changeTitle(min + ":" + sec);
     if (sec <= 0) {
       stopInterval();
       if(min > 0) timer(min, sec)
@@ -42,4 +33,11 @@ function timer(min, sec) {
   function stopInterval() {
     clearInterval(intervalID);
   }
+  return stopInterval;
+  }
+
+function changeTitle(title) {
+  const h1 = document.getElementsByClassName("test")[0]
+  h1.innerHTML = title
 }
+
