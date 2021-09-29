@@ -10,13 +10,17 @@ function backwardsCount(seconds) {
   }
 }
 
+
 /**
  * Funcion que consuma 2 parametros
  * @param minutes
  * @param seconds
  * Hará una cuenta regresiva hasta que 'minutes' y 'seconds' sea 0
  */
+let isTimerActived = false
+
 function timer(min, sec) {
+  isTimerActived = true
   if (sec == 0) {
     min--;
     sec += 59;
@@ -26,18 +30,31 @@ function timer(min, sec) {
     changeTitle(min + ":" + sec);
     if (sec <= 0) {
       stopInterval();
-      if(min > 0) timer(min, sec)
+      if (min > 0) timer(min, sec);
     }
+    if(isTimerActived == false) {stopInterval()}
   }, 1000);
 
   function stopInterval() {
     clearInterval(intervalID);
   }
-  return stopInterval;
-  }
-
-function changeTitle(title) {
-  const h1 = document.getElementsByClassName("test")[0]
-  h1.innerHTML = title
 }
 
+function changeTitle(title) {
+  const h1 = document.getElementsByClassName("test")[0];
+  h1.innerHTML = title;
+}
+
+function pauseTimer() {
+  isTimerActived = false
+}
+
+/**
+ * This function does:
+ * -Changes the value to zero
+ * -Stops counting
+ */
+function resetTimer() {
+  pauseTimer();
+  changeTitle(0+":"+0);
+}
