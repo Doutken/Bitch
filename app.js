@@ -10,33 +10,35 @@ function backwardsCount(seconds) {
   }
 }
 
-
+let isTimerActived = false
 /**
  * Funcion que consuma 2 parametros
  * @param minutes
  * @param seconds
  * Hará una cuenta regresiva hasta que 'minutes' y 'seconds' sea 0
  */
-let isTimerActived = false
-
 function timer(min, sec) {
   isTimerActived = true
-  if (sec == 0) {
-    min--;
-    sec += 59;
-  }
-  const intervalID = setInterval(() => {
-    sec--;
-    changeTitle(min + ":" + sec);
-    if (sec <= 0) {
-      stopInterval();
-      if (min > 0) timer(min, sec);
-    }
+  const intervalID2 = setInterval(() => {
+    
     if(isTimerActived == false) {stopInterval()}
+  }, 100);
+  const intervalID = setInterval(() => {
+    if(sec <= 0) {
+      min--
+      sec += 60
+    }
+    changeTitle(min + ":" + sec);
+    sec--;
+    if (sec <= 0 && min <= 0) {
+      stopInterval();
+      if (min > 0) {};
+    }
   }, 1000);
 
   function stopInterval() {
     clearInterval(intervalID);
+    clearInterval(intervalID2);
   }
 }
 
